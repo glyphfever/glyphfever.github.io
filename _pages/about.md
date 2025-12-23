@@ -5,6 +5,7 @@ author_profile: true
 redirect_from: 
   - /about/
   - /about.html
+layout: redirect
+redirect_to: /blog/
 ---
 
-This site is still under construction
