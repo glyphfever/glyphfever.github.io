@@ -1,1 +1,56 @@
+:root {
+    --ice-white: #F7FAFF;
+    --cream-gold: #FFF8E6;
+    --soft-gold: #F2C96D;
+    --electric-blue: #2563EB;
+    --deep-blue: #174A8B;
+    --midnight: #172B4D;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
 
+    background: linear-gradient(
+        120deg,
+        var(--ice-white) 30%,
+        var(--cream-gold) 100%
+    );
+
+    color: var(--midnight);
+    font-family: ui-sans-serif, sans-serif, system-ui, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji;
+}
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 40px 24px;
+    box-sizing: border-box;
+}
+
+
+.hero h1 {
+    font-size: 48px;
+    color: var(--midnight);
+    margin: 0 0 24px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--deep-blue);
+    max-width: 800px;
+    margin: 0 0 20px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #526780;
+    max-width: 650px;
+    margin: 0;
+}
