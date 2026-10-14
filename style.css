@@ -30,7 +30,7 @@ main {
 /* Site header */
 .site-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     padding: 24px 40px;
