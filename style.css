@@ -43,7 +43,12 @@ main {
     font-weight: 700;
     letter-spacing: 1px;
 }
-
+/*
+The direction of the flex container determines what justify-content and align-items actually control.
+Direction	justify-content	            align-items
+row	        Horizontal alignment	    Vertical alignment
+column	    Vertical alignment	        Horizontal alignment
+*/
 
 .hero {
     flex: 1;
