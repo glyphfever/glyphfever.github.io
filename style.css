@@ -62,7 +62,31 @@ column	    Vertical alignment	        Horizontal alignment
     padding: 40px 24px;
     box-sizing: border-box;
 }
+.hero-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
 
+    font-size: 48px;
+    color: var(--midnight);
+    margin: 0 0 24px;
+}
+
+.flame-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 59px;
+}
+
+.flame-logo svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
 .hero h1 {
     font-size: 48px;
