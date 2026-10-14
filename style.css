@@ -89,9 +89,7 @@ column	    Vertical alignment	        Horizontal alignment
 }
 
 .hero h1 {
-    font-size: 48px;
     color: var(--midnight);
-    margin: 0 0 24px;
 }
 
 .hero h2 {
