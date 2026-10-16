@@ -107,7 +107,18 @@ column	    Vertical alignment	        Horizontal alignment
     max-width: 650px;
     margin: 0;
 }
-
+/*
+.social-links (parent)
+│
+├── a (GitHub circle)
+│   └── img (GitHub icon)
+│
+├── a (LinkedIn circle)
+│   └── img (LinkedIn icon)
+│
+└── a (Email circle)
+    └── img (Email icon)
+*/
 
 /* Social links */
 .social-links {
