@@ -128,7 +128,15 @@ column	    Vertical alignment	        Horizontal alignment
     gap: 16px;
     margin-top: 24px;
 }
+/*
+When your pointer enters the circle, three things change:
+Property	Normal state	    Hover state
+Background	White	            Cream gold
+Border	    Light blue-gray	    Soft gold
+Transform	No translation	    Up 3px
 
+Without transition, these changes happen immediately. With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
+*/
 .social-links a {
     display: flex;
     justify-content: center;
