@@ -118,6 +118,8 @@ column	    Vertical alignment	        Horizontal alignment
 │
 └── a (Email circle)
     └── img (Email icon)
+Parent Flexbox (.social-links) controls the arrangement of the three links.
+Child Flexbox (.social-links a) controls the alignment of each icon inside its circle.
 */
 
 /* Social links */
