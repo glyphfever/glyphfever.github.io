@@ -139,7 +139,7 @@ Without transition, these changes happen immediately.
 With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
 */
 .social-links a {
-    display: flex;
+    
     justify-content: center;
     align-items: center;
 
@@ -151,7 +151,7 @@ With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
 
     transition: background-color 0.2s ease,
                 border-color 0.2s ease,
-                transform 1s linear;
+                transform 0.2s ease;
 }
 
 .social-links img {
