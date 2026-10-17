@@ -172,3 +172,28 @@ With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
     outline-offset: 4px;
 }
 
+/* Mobile screen adjustments */
+@media (max-width: 600px) {
+    .site-header {
+        padding: 20px 24px;
+    }
+
+    .hero-name {
+        font-size: 36px;
+        gap: 10px;
+    }
+
+    .flame-logo {
+        width: 34px;
+        height: 45px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+}
+
