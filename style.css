@@ -135,7 +135,8 @@ Background	White	            Cream gold
 Border	    Light blue-gray	    Soft gold
 Transform	No translation	    Up 3px
 
-Without transition, these changes happen immediately. With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
+Without transition, these changes happen immediately. 
+With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
 */
 .social-links a {
     display: flex;
