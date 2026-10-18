@@ -26,7 +26,7 @@ body {
     );
 
     color: var(--midnight);
-    font-family: ui-sans-serif, sans-serif, system-ui, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji;
+    font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
 main {
@@ -67,8 +67,8 @@ column	    Vertical alignment	        Horizontal alignment
 
     text-align: center;
     padding: 40px 24px;
-    box-sizing: border-box;
 }
+
 .hero-name {
     display: flex;
     align-items: center;
@@ -93,10 +93,6 @@ column	    Vertical alignment	        Horizontal alignment
     width: 100%;
     height: 100%;
     display: block;
-}
-
-.hero h1 {
-    color: var(--midnight);
 }
 
 .hero h2 {
