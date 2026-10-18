@@ -69,7 +69,7 @@ column	    Vertical alignment	        Horizontal alignment
     gap: 14px;
     flex-wrap: wrap;
 
-    font-size: 48px;
+    font-size: 36px;
     color: var(--midnight);
     margin: 0 0 24px;
 }
@@ -78,8 +78,8 @@ column	    Vertical alignment	        Horizontal alignment
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 59px;
+    width: 38px;
+    height: 50px;
 }
 
 .flame-logo svg {
@@ -178,14 +178,14 @@ With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
         padding: 20px 24px;
     }
 
-    .hero-name {
-        font-size: 36px;
+   .hero-name {
+        font-size: 30px;
         gap: 10px;
     }
 
     .flame-logo {
-        width: 34px;
-        height: 45px;
+        width: 32px;
+        height: 42px;
     }
 
     .hero h2 {
