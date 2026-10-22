@@ -231,4 +231,7 @@ With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
     .social-links a:hover {
         transform: none;
     }
+    .flame {
+        transition: none;
+    }
 }
