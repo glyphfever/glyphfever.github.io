@@ -95,6 +95,24 @@ column	    Vertical alignment	        Horizontal alignment
     display: block;
 }
 
+/* Phase 2: Flame ignition 
+2px -> blur radius
+0.12 -> shadow opacity
+*/
+.flame-logo svg {
+    filter: drop-shadow(
+        0 0 2px rgba(37, 99, 235, 0.12)
+    );
+
+    transition: filter 350ms ease-out;
+}
+
+.flame-logo:hover svg {
+    filter: drop-shadow(
+        0 0 7px rgba(37, 99, 235, 0.45)
+    );
+}
+
 .hero h2 {
     font-size: 28px;
     font-weight: 600;
@@ -231,7 +249,7 @@ With transition, they smoothly animate over 0.2 seconds (200 milliseconds).
     .social-links a:hover {
         transform: none;
     }
-    .flame {
-        transition: none;
+    .flame-logo svg {
+    transition: none;
     }
 }
