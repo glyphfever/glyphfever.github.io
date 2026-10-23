@@ -124,11 +124,11 @@ column	    Vertical alignment	        Horizontal alignment
 /* Shared styling for all three sparks */
 .spark {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     pointer-events: none;
-    opacity: 1;
+    opacity: 0;
     z-index: 2;
 }
 
@@ -137,27 +137,29 @@ column	    Vertical alignment	        Horizontal alignment
     left: 20%;
     top: 40%;
     background: var(--soft-gold);
+    --drift-x: -12px;
 }
 
 .spark-2 {
     left: 80%;
     top: 55%;
     background: #87B9FF;
+    --drift-x: 12px;
 }
 
 .spark-3 {
     left: 55%;
     top: 20%;
     background: var(--soft-gold);
+    --drift-x: 5px;
 }
 
-/* Animate sparks when hovering over the flame 
+/* Trigger the sparks on hover */
 .flame-logo:hover .spark {
-    animation: spark-rise 800ms ease-out both;
+    animation: spark-rise 1200ms ease-out both;
 }
-*/
 
-/* Stagger their movement */
+/* Stagger the sparks */
 .flame-logo:hover .spark-2 {
     animation-delay: 120ms;
 }
@@ -166,20 +168,26 @@ column	    Vertical alignment	        Horizontal alignment
     animation-delay: 240ms;
 }
 
-/* Define the spark movement */
+/* Sparks drift upward and outward */
 @keyframes spark-rise {
     0% {
         opacity: 0;
         transform: translate(0, 0) scale(0.5);
     }
 
-    25% {
+    20% {
         opacity: 1;
+    }
+
+    70% {
+        opacity: 0.8;
     }
 
     100% {
         opacity: 0;
-        transform: translate(8px, -20px) scale(0.2);
+        transform:
+            translate(var(--drift-x), -24px)
+            scale(0.2);
     }
 }
 
