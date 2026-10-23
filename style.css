@@ -109,7 +109,7 @@ column	    Vertical alignment	        Horizontal alignment
 
 .flame-logo:hover svg {
     filter: drop-shadow(
-        0 0 7px rgba(37, 99, 235, 0.45)
+        0 0 7px rgba(37, 99, 235, 0.55)
     );
 }
 
