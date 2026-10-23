@@ -113,6 +113,75 @@ column	    Vertical alignment	        Horizontal alignment
     );
 }
 
+
+/* Phase 2: Hover sparks */
+
+/* Make the flame the positioning reference */
+.flame-logo {
+    position: relative;
+}
+
+/* Shared styling for all three sparks */
+.spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Spark positions and colours */
+.spark-1 {
+    left: 20%;
+    top: 40%;
+    background: var(--soft-gold);
+}
+
+.spark-2 {
+    left: 80%;
+    top: 55%;
+    background: #87B9FF;
+}
+
+.spark-3 {
+    left: 55%;
+    top: 20%;
+    background: var(--soft-gold);
+}
+
+/* Animate sparks when hovering over the flame */
+.flame-logo:hover .spark {
+    animation: spark-rise 800ms ease-out both;
+}
+
+/* Stagger their movement */
+.flame-logo:hover .spark-2 {
+    animation-delay: 120ms;
+}
+
+.flame-logo:hover .spark-3 {
+    animation-delay: 240ms;
+}
+
+/* Define the spark movement */
+@keyframes spark-rise {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(8px, -20px) scale(0.2);
+    }
+}
+
+
 .hero h2 {
     font-size: 28px;
     font-weight: 600;
