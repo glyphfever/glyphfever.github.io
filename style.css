@@ -124,11 +124,12 @@ column	    Vertical alignment	        Horizontal alignment
 /* Shared styling for all three sparks */
 .spark {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     pointer-events: none;
-    opacity: 0;
+    opacity: 1;
+    z-index: 2;
 }
 
 /* Spark positions and colours */
@@ -150,10 +151,11 @@ column	    Vertical alignment	        Horizontal alignment
     background: var(--soft-gold);
 }
 
-/* Animate sparks when hovering over the flame */
+/* Animate sparks when hovering over the flame 
 .flame-logo:hover .spark {
     animation: spark-rise 800ms ease-out both;
 }
+*/
 
 /* Stagger their movement */
 .flame-logo:hover .spark-2 {
