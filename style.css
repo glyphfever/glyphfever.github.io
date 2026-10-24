@@ -115,7 +115,6 @@ column	    Vertical alignment	        Horizontal alignment
 
 
 /* Phase 2: Hover sparks */
-
 /* Make the flame the positioning reference */
 .flame-logo {
     position: relative;
@@ -189,6 +188,26 @@ column	    Vertical alignment	        Horizontal alignment
             translate(var(--drift-x), -24px)
             scale(0.2);
     }
+}
+
+/* Phase 2: Ambient particle layer */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.particle-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero > *:not(.particle-layer) {
+    position: relative;
+    z-index: 1;
 }
 
 
