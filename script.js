@@ -55,7 +55,7 @@ if (!prefersReducedMotion) {
         d3.select(this)
           .attr("cx", d.x)
           .attr("cy", d.y)
-          .attr("opacity", 0.18);
+          .attr("opacity", 0.50);
 
         animateParticle(d3.select(this), d);
       });
