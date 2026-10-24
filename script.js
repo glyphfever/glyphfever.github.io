@@ -46,7 +46,7 @@ if (!prefersReducedMotion) {
       .ease(d3.easeLinear)
       .attr("cx", d.x + d.drift)  //move slightly left or right
       .attr("cy", d.y - 40)   //move upward by 40px
-      .attr("opacity", 0.12)  //fade a little
+      .attr("opacity", 0.60)  //fade a little
       .on("end", function () {  //when transition ends
         d.x = Math.random() * width;  //reset that particle to a new position near the bottom and animate it again
         d.y = Math.random() * height;
@@ -55,7 +55,7 @@ if (!prefersReducedMotion) {
         d3.select(this)
           .attr("cx", d.x)
           .attr("cy", d.y)
-          .attr("opacity", 0.18);
+          .attr("opacity", 0.60);
 
         animateParticle(d3.select(this), d);
       });
