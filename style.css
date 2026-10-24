@@ -123,8 +123,8 @@ column	    Vertical alignment	        Horizontal alignment
 /* Shared styling for all three sparks */
 .spark {
     position: absolute;
-    width: 5px;
-    height: 5px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     pointer-events: none;
     opacity: 0;
