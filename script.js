@@ -48,14 +48,32 @@ svg.attr("viewBox", `0 0 ${width} ${height}`);
 
 const particleCount = 14;
 
-const particles = d3.range(particleCount).map(() => ({
-  x: Math.random() * width,
-  y: Math.random() * height,
-  r: Math.random() * 2 + 1.5,
-  color: Math.random() > 0.5 ? "#87B9FF" : "#F2C96D",
-  vx: (Math.random() - 0.5) * 4,
-  vy: -(6 + Math.random() * 8) // gentle speed 6 -14 px/sec
-}));
+// Phase 3A.3: Repulsion settings
+const repulsionRadius = 90;
+
+const repulsionScale = d3.scaleLinear()
+   .domain([0, repulsionRadius])
+   .range([180, 0])
+   .clamp(true);
+
+const dampingRate = 3; // per second
+
+const particles = d3.range(particleCount).map(() => {
+  const vx = (Math.random() - 0.5) * 4;
+  const vy = -(6 + Math.random() * 8);
+
+  return {
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 2 + 1.5,
+    color: Math.random() > 0.5 ? "#87B9FF" : "#F2C96D",
+    vx,
+    vy,
+    homeVx: vx,
+    homeVy: vy
+  };
+});
+
 
 // Bind particle data to SVG circles
 const circles = svg
@@ -90,20 +108,37 @@ function startAnimation() {
     previousElapsed = elapsed;
 
     particles.forEach(d => {
-      // Phase 3A.2: Detect particles near the pointer
-      const repulsionRadius = 90;
+      
+     // Phase 3A.3: Calculate repulsion
+     d.nearPointer = false;
     
-      if (pointer.active) {
-        const dx = d.x - pointer.x;
-        const dy = d.y - pointer.y;
-        const distance = Math.hypot(dx, dy);
+     if (pointer.active) {
+       const dx = d.x - pointer.x;
+       const dy = d.y - pointer.y;
+       const distance = Math.hypot(dx, dy);
     
-        // Temporary visual feedback
-        d.nearPointer = distance < repulsionRadius;
-      } else {
-        d.nearPointer = false;
-      }
+       if (distance < repulsionRadius) {
+         d.nearPointer = true;
     
+         if (distance > 0.001) {
+           const directionX = dx / distance;
+           const directionY = dy / distance;
+    
+           const acceleration = repulsionScale(distance);
+    
+           // Velocity changes according to acceleration and time
+           d.vx += directionX * acceleration * dt;
+           d.vy += directionY * acceleration * dt;
+         }
+       }
+     }
+    
+     // Gradually return to original ambient velocity
+     const recovery = 1 - Math.exp(-dampingRate * dt);
+    
+     d.vx += (d.homeVx - d.vx) * recovery;
+     d.vy += (d.homeVy - d.vy) * recovery;
+
       // Existing position updates
       d.x += d.vx * dt;
       d.y += d.vy * dt;
