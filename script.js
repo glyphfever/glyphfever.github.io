@@ -29,9 +29,7 @@ const motionPreference = window.matchMedia(
      pointer.x = x;
      pointer.y = y;
      pointer.active = true;
-     console.log(
-      `Pointer: x=${x.toFixed(0)}, y=${y.toFixed(0)}`
-      );
+     
    })
    .on("pointerleave", function() {
      pointer.active = false;
