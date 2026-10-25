@@ -11,6 +11,34 @@ const motionPreference = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 );
 
+
+ // --------------------------------------
+ // Phase 3A.1: Pointer tracking
+ // --------------------------------------
+
+ const pointer = {
+   x: 0,
+   y: 0,
+   active: false
+ };
+
+ d3.select(hero)
+   .on("pointermove", function(event) {
+     const [x, y] = d3.pointer(event, this);
+
+     pointer.x = x;
+     pointer.y = y;
+     pointer.active = true;
+     console.log(
+      `Pointer: x=${x.toFixed(0)}, y=${y.toFixed(0)}`
+      );
+   })
+   .on("pointerleave", function() {
+     pointer.active = false;
+   });
+
+
+
 let width = hero.clientWidth;
 let height = hero.clientHeight;
 
