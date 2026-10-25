@@ -90,7 +90,21 @@ function startAnimation() {
     previousElapsed = elapsed;
 
     particles.forEach(d => {
-      // Update positions from velocity
+      // Phase 3A.2: Detect particles near the pointer
+      const repulsionRadius = 90;
+    
+      if (pointer.active) {
+        const dx = d.x - pointer.x;
+        const dy = d.y - pointer.y;
+        const distance = Math.hypot(dx, dy);
+    
+        // Temporary visual feedback
+        d.nearPointer = distance < repulsionRadius;
+      } else {
+        d.nearPointer = false;
+      }
+    
+      // Existing position updates
       d.x += d.vx * dt;
       d.y += d.vy * dt;
 
@@ -110,7 +124,8 @@ function startAnimation() {
 
     circles
       .attr("cx", d => d.x)
-      .attr("cy", d => d.y);
+      .attr("cy", d => d.y)
+      .attr("opacity", d => d.nearPointer ? 1 : 0.5);
   });
 }
 
