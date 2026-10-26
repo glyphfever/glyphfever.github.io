@@ -65,7 +65,7 @@ const particles = d3.range(particleCount).map(() => {
   return {
     x: Math.random() * width,
     y: Math.random() * height,
-    r: Math.random() * 2 + 1.5,
+    r: Math.random() * 2 + 2.5,
     color: Math.random() > 0.5 ? "#87B9FF" : "#F2C96D",
     vx,
     vy,
