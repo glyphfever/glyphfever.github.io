@@ -160,7 +160,7 @@ function startAnimation() {
     circles
       .attr("cx", d => d.x)
       .attr("cy", d => d.y)
-      .attr("opacity", d => d.nearPointer ? 1 : 0.75);  //attr("opacity", 0.5);
+      .attr("opacity", d => d.nearPointer ? 1 : 0.65);  //attr("opacity", 0.5);
   });
 }
 
