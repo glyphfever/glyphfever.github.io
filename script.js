@@ -84,7 +84,7 @@ const circles = svg
   .attr("cy", d => d.y)
   .attr("r", d => d.r)
   .attr("fill", d => d.color)
-  .attr("opacity", 0.5);
+  .attr("opacity", 0.65);
 
 // --------------------------------------
 // 2. Animation: d3.timer()
@@ -160,7 +160,7 @@ function startAnimation() {
     circles
       .attr("cx", d => d.x)
       .attr("cy", d => d.y)
-      .attr("opacity", d => d.nearPointer ? 1 : 0.5);
+      .attr("opacity", 0.65);
   });
 }
 
