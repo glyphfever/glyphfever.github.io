@@ -1,5 +1,5 @@
 
-/*
+/* 
  * Glyphfever — Phase 2
  * Continuous, responsive ambient particles
  */
