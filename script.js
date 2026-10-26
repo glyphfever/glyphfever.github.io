@@ -49,14 +49,14 @@ svg.attr("viewBox", `0 0 ${width} ${height}`);
 const particleCount = 17;
 
 // Phase 3A.3: Repulsion settings
-const repulsionRadius = 110;
+const repulsionRadius = 145;
 
 const repulsionScale = d3.scaleLinear()
   .domain([0, repulsionRadius])
-  .range([360, 0])
+  .range([750, 0])
   .clamp(true);
 
-const dampingRate = 3; // per second
+const dampingRate = 2; // per second
 
 const particles = d3.range(particleCount).map(() => {
   const vx = (Math.random() - 0.5) * 4;
