@@ -46,15 +46,15 @@ svg.attr("viewBox", `0 0 ${width} ${height}`);
 // 1. Particle data: position and velocity
 // --------------------------------------
 
-const particleCount = 14;
+const particleCount = 17;
 
 // Phase 3A.3: Repulsion settings
-const repulsionRadius = 90;
+const repulsionRadius = 110;
 
 const repulsionScale = d3.scaleLinear()
-   .domain([0, repulsionRadius])
-   .range([180, 0])
-   .clamp(true);
+  .domain([0, repulsionRadius])
+  .range([360, 0])
+  .clamp(true);
 
 const dampingRate = 3; // per second
 
@@ -160,7 +160,7 @@ function startAnimation() {
     circles
       .attr("cx", d => d.x)
       .attr("cy", d => d.y)
-      .attr("opacity", 0.65);
+      .attr("opacity", d => d.nearPointer ? 1 : 0.75);  //attr("opacity", 0.5);
   });
 }
 
