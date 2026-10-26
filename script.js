@@ -56,7 +56,7 @@ const repulsionScale = d3.scaleLinear()
   .range([750, 0])
   .clamp(true);
 
-const dampingRate = 2; // per second
+const dampingRate = 2; // per second 
 
 const particles = d3.range(particleCount).map(() => {
   const vx = (Math.random() - 0.5) * 4;
