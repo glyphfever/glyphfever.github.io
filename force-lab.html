@@ -58,8 +58,8 @@
         "collision",
         d3.forceCollide()
           .radius(d => d.r)
-          .strength(1)
-          .iterations(2)
+          .strength(0.2)
+          .iterations(1)
       )
       .on("tick", () => {
         circles
