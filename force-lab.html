@@ -33,6 +33,30 @@
     const particleCount = 14;
 
     const svg = d3.select("#force-lab");
+    
+ // Phase 3B.5: Pointer tracking
+
+ const pointer = {
+   x: 0,
+   y: 0,
+   active: false
+ };
+
+ svg.on("pointermove", function(event) {
+   const [x, y] = d3.pointer(event, this);
+
+   pointer.x = x;
+   pointer.y = y;
+   pointer.active = true;
+
+   simulation.alphaTarget(0.3).restart();
+ });
+
+ svg.on("pointerleave", function() {
+   pointer.active = false;
+
+   simulation.alphaTarget(0);
+ });
 
     // 1. Create particle data
     const particles = d3.range(particleCount).map(() => ({
@@ -51,17 +75,56 @@
       .attr("r", d => d.r)
       .attr("fill", d => d.color)
       .attr("opacity", 0.8);
+// --------------------------------------
+ // Phase 3B.5: Custom pointer repulsion
+ // --------------------------------------
 
-    // 3. Create the force simulation
+ function createPointerForce(pointer, radius = 120, strength = 8) {
+
+   let nodes = [];
+
+   function force(alpha) {
+
+     if (!pointer.active) return;
+
+     nodes.forEach(d => {
+
+       const dx = d.x - pointer.x;
+       const dy = d.y - pointer.y;
+
+       const distance = Math.hypot(dx, dy);
+
+       if (distance > 0.001 && distance < radius) {
+
+         // Normalize the direction vector
+         const directionX = dx / distance;
+         const directionY = dy / distance;
+
+         // Stronger force when closer to the pointer
+         const intensity = 1 - distance / radius;
+
+         // Apply changes to velocity
+         d.vx += directionX * intensity * strength * alpha;
+         d.vy += directionY * intensity * strength * alpha;
+       }
+     });
+   }
+
+   // D3 supplies the simulation's nodes
+   force.initialize = function(_nodes) {
+     nodes = _nodes;
+   };
+
+   return force;
+ }
     
  // Phase 3B.4: Combining attraction and collision
-
  const simulation = d3.forceSimulation(particles)
 
    // Force 1: Pull particles toward one another
    .force(
      "charge",
-     d3.forceManyBody().strength(-40)
+     d3.forceManyBody().strength(20)
    )
 
    // Force 2: Prevent particles from overlapping
@@ -72,7 +135,11 @@
        .strength(1)
        .iterations(3)
    )
-
+    // Force 3: Pointer repulsion
+  .force(
+    "pointer",
+    createPointerForce(pointer, 120, 8)
+  )
    // Reduce excessive movement
    .velocityDecay(0.55)
 
@@ -82,6 +149,8 @@
        .attr("cx", d => d.x)
        .attr("cy", d => d.y);
    });
+
+ 
 
 
   </script>
