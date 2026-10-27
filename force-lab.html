@@ -22,7 +22,7 @@
 </head>
 <body>
 
-  <h2>Phase 3B.2 — forceManyBody()</h2>
+  <h2>Phase 3B.2 — forceCollide()</h2>
   <p>Watch how particles repel one another.</p>
 
   <svg id="force-lab" width="800" height="450"></svg>
@@ -58,10 +58,11 @@
         "collision",
         d3.forceCollide()
           .radius(d => d.r)
-          .strength(0.2)
-          .iterations(1)
+          .strength(1)
+          .iterations(3)
       )
-      .on("tick", () => {
+      .on("tick", () => { 
+        //A discrete moment when a system updates its internal state.
         circles
           .attr("cx", d => d.x)
           .attr("cy", d => d.y);
