@@ -61,7 +61,7 @@
    // Force 1: Pull particles toward one another
    .force(
      "charge",
-     d3.forceManyBody().strength(20)
+     d3.forceManyBody().strength(-40)
    )
 
    // Force 2: Prevent particles from overlapping
@@ -69,7 +69,7 @@
      "collision",
      d3.forceCollide()
        .radius(d => d.r + 2)
-       .strength(0)
+       .strength(1)
        .iterations(3)
    )
 
