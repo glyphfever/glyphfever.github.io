@@ -53,20 +53,36 @@
       .attr("opacity", 0.8);
 
     // 3. Create the force simulation
-    const simulation = d3.forceSimulation(particles)
-      .force(
-        "collision",
-        d3.forceCollide()
-          .radius(d => d.r)
-          .strength(1)
-          .iterations(3)
-      )
-      .on("tick", () => { 
-        //A discrete moment when a system updates its internal state.
-        circles
-          .attr("cx", d => d.x)
-          .attr("cy", d => d.y);
-      });
+    
+ // Phase 3B.4: Combining attraction and collision
+
+ const simulation = d3.forceSimulation(particles)
+
+   // Force 1: Pull particles toward one another
+   .force(
+     "charge",
+     d3.forceManyBody().strength(20)
+   )
+
+   // Force 2: Prevent particles from overlapping
+   .force(
+     "collision",
+     d3.forceCollide()
+       .radius(d => d.r + 2)
+       .strength(1)
+       .iterations(3)
+   )
+
+   // Reduce excessive movement
+   .velocityDecay(0.55)
+
+   // Update circles after each simulation tick
+   .on("tick", () => {
+     circles
+       .attr("cx", d => d.x)
+       .attr("cy", d => d.y);
+   });
+
 
   </script>
 
