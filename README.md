@@ -61,6 +61,7 @@ dist/	        Generated production output; don't manually edit
 | Shared CSS	 |                       src/styles/	   |               global.css |
 | Project-specific CSS	 |             Project folder	|            style.css |
 
+For D3, keep small datasets close to their charts. If loading a CSV using d3.csv() at runtime, however, **it must be served as a public asset or explicitly included through Vite's asset handling**. Merely placing a CSV next to a JSX component doesn't make it available as a runtime URL.
 
 For images imported into React, Vite processes the files and handles their production URLs:
 
